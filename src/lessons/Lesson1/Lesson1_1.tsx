@@ -1,10 +1,14 @@
-let age = 0;
+import { useState } from 'react';
 
 export default function Lesson1_1() {
+  const [age, setAge] = useState<number>(0);
+
   const handleClick = () => {
-    age += 1;
-    console.log(age);
+    setAge(age + 1);
+    setAge(age + 1);
+    setAge(age + 1);
   };
+
   return (
     <div>
       <input type="text" />
