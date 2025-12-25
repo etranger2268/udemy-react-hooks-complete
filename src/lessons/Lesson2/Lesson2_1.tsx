@@ -14,6 +14,7 @@ export default function Lesson2_1() {
   // biome-ignore lint: "handleMove is not included in the dependency"
   useEffect(() => {
     window.addEventListener('pointermove', handleMove);
+    return () => window.removeEventListener('pointermove', handleMove);
   }, []);
 
   return (
