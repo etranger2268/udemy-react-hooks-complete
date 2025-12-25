@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    /* ----------------------------------------------------------------------
+     * Node.js Environment Target
+     * ---------------------------------------------------------------------- */
+    "target": "ES2022",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* ----------------------------------------------------------------------
+     * Bundler & Resolution
+     * ---------------------------------------------------------------------- */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* ----------------------------------------------------------------------
+     * Strict Type Checks
+     * ---------------------------------------------------------------------- */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* ----------------------------------------------------------------------
+     * Strict Type Checks
+     * ---------------------------------------------------------------------- */
+    "verbatimModuleSyntax": true
+  },
+  "include": ["vite.config.ts", "tailwind.config.ts", "postcss.config.js"]
+}

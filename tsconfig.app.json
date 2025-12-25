@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    /* ----------------------------------------------------------------------
+     * Base Options
+     * ---------------------------------------------------------------------- */
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* ----------------------------------------------------------------------
+     * Bundler & Resolution
+     * ---------------------------------------------------------------------- */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* ----------------------------------------------------------------------
+     * Strict Type Checks
+     * ---------------------------------------------------------------------- */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+
+    /* ----------------------------------------------------------------------
+     * Paths & Aliases
+     * ---------------------------------------------------------------------- */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    /* Modern Imports */
+    "verbatimModuleSyntax": true
+  },
+  "include": ["src"]
+}
