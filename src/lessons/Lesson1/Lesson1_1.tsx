@@ -4,9 +4,12 @@ export default function Lesson1_1() {
   const [age, setAge] = useState<number>(0);
 
   const handleClick = () => {
-    setAge(age + 1);
-    setAge(age + 1);
-    setAge(age + 1);
+    setAge((prev) => prev + 1);
+    setAge((prev) => prev + 1);
+    setAge((prev) => prev + 1);
+    // setAge(age + 1);
+    // setAge(age + 1);
+    // setAge(age + 1);
   };
 
   return (
