@@ -1,4 +1,5 @@
-import { useFetchUser } from './hooks/useFetchUser';
+// import { useFetchUser } from './hooks/useFetchUser';
+import useSWR from 'swr';
 
 export type User = {
   id: number;
@@ -10,11 +11,23 @@ export type User = {
   };
 };
 
+const fetcher = <T,>(...args: [RequestInfo, RequestInit?]): Promise<T> =>
+  fetch(...args).then((res) => res.json());
+
 export default function Lesson2_3() {
-  const { user, loading } = useFetchUser(2);
+  // const { user, loading } = useFetchUser(2);
+  const {
+    data: user,
+    error,
+    isLoading: loading,
+  } = useSWR<User>('https://jsonplaceholder.typicode.com/users/1', fetcher);
 
   if (loading) {
     return <p>Loading...</p>;
+  }
+
+  if (error) {
+    <p>エラーが発生しました</p>;
   }
 
   if (!user) {

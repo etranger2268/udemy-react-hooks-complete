@@ -9,6 +9,7 @@
 - [TypeScript](https://www.typescriptlang.org/ja/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Biome](https://biomejs.dev/)
+- [SWR](https://swr.vercel.app/ja)
 
 ## 開発
 
