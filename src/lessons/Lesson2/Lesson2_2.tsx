@@ -6,11 +6,17 @@ export default function Lesson2_2() {
   const [bio, setBio] = useState<string | null>(null);
 
   useEffect(() => {
+    let ignore = false;
     const startFetching = async () => {
       const res = await fetchBio(person);
-      setBio(res);
+      if (!ignore) {
+        setBio(res);
+      }
     };
     startFetching();
+    return () => {
+      ignore = true;
+    };
   }, [person]);
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => setPerson(e.target.value);
