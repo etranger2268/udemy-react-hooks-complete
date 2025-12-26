@@ -3,11 +3,12 @@ import { fetchBio } from './fetchBio';
 
 export default function Lesson2_2() {
   const [person, setPerson] = useState<string>('');
+  const [bio, setBio] = useState<string | null>(null);
 
   useEffect(() => {
     const startFetching = async () => {
-      const bio = await fetchBio(person);
-      console.log(bio);
+      const res = await fetchBio(person);
+      setBio(res);
     };
     startFetching();
   }, [person]);
@@ -23,7 +24,7 @@ export default function Lesson2_2() {
         <option value="John">John</option>
       </select>
 
-      <p className="text-black">{'Loading...'}</p>
+      <p className="text-black">{bio ?? 'Loading...'}</p>
     </div>
   );
 }
