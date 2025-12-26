@@ -4,6 +4,7 @@ import { fetchBio } from './fetchBio';
 export default function Lesson2_2() {
   const [person, setPerson] = useState<string>('');
   const [bio, setBio] = useState<string | null>(null);
+  // const [count, setCount] = useState(0);
 
   useEffect(() => {
     let ignore = false;
@@ -14,6 +15,9 @@ export default function Lesson2_2() {
       }
     };
     startFetching();
+
+    // setCount((prev) => prev + 1);
+
     return () => {
       ignore = true;
     };
@@ -31,6 +35,7 @@ export default function Lesson2_2() {
       </select>
 
       <p className="text-black">{bio ?? 'Loading...'}</p>
+      {/* <p>{count}</p> */}
     </div>
   );
 }
