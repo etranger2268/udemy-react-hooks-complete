@@ -5,14 +5,20 @@ type UserInfo = {
   email: string;
 };
 
-const AuthContext = createContext(false);
+type AuthContextType = {
+  user: UserInfo | null;
+  login: (userInfo: UserInfo) => void;
+  logout: () => void;
+};
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
   return context;
 };
 
-const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+export default function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<UserInfo | null>(null);
 
   const login = (userInfo: UserInfo) => {
@@ -30,5 +36,5 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     logout,
   };
 
-  return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
-};
+  return <AuthContext value={contextValue}>{children}</AuthContext>;
+}
