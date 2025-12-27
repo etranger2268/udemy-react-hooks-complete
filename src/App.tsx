@@ -6,7 +6,8 @@
 // import Lesson3_1 from './lessons/Lesson3/Lesson3_1';
 // import Lesson3_2 from './lessons/Lesson3/Lesson3_2';
 // import Lesson3_3 from './lessons/Lesson3/Lesson3_3';
-import Lesson3_4 from './lessons/Lesson3/Lesson3_4';
+// import Lesson3_4 from './lessons/Lesson3/Lesson3_4';
+import Lesson4 from './lessons/Lesson4/Lesson4';
 
 export default function App() {
   return (
@@ -19,7 +20,8 @@ export default function App() {
       {/* <Lesson3_1 /> */}
       {/* <Lesson3_2 /> */}
       {/* <Lesson3_3 /> */}
-      <Lesson3_4 />
+      {/* <Lesson3_4 /> */}
+      <Lesson4 />
     </div>
   );
 }
