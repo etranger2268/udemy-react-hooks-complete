@@ -1,13 +1,13 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import ChildToggle from './ChildToggle';
 
 export default function Lesson5_2() {
   const [count, setCount] = useState(0);
-  const [on, setOn] = useState(false);
+  // const [on, setOn] = useState(false);
 
   console.log('Parent');
 
-  const toggle = useCallback(() => setOn((prev) => !prev), []);
+  // const toggle = useCallback(() => setOn((prev) => !prev), []);
 
   return (
     <div className="ml-8">
@@ -21,7 +21,8 @@ export default function Lesson5_2() {
           Parent Count
         </button>
       </div>
-      <ChildToggle toggle={toggle} on={on} />
+      {/* <ChildToggle toggle={toggle} on={on} /> */}
+      <ChildToggle />
     </div>
   );
 }

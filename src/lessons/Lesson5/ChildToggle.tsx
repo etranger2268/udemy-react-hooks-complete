@@ -1,13 +1,12 @@
-import { memo } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { Fragment } from 'react/jsx-runtime';
 
-type Props = {
-  toggle: () => void;
-  on: boolean;
-};
+function ChildToggle() {
+  const [on, setOn] = useState(false);
 
-function ChildToggle({ toggle, on }: Props) {
   console.log('ChildToggle');
+
+  const toggle = useCallback(() => setOn((prev) => !prev), []);
 
   return (
     <Fragment>
