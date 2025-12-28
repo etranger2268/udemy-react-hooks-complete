@@ -7,8 +7,7 @@ type Props = {
 };
 
 export default function Thread({ messages, sendMessage }: Props) {
-  const formRef = useRef<HTMLFormElement>(null);
-
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [optimisticMessages, addOptimisticMessage] = useOptimistic(
     messages,
     (state: Message[], newMessageText: string) => [
@@ -21,28 +20,24 @@ export default function Thread({ messages, sendMessage }: Props) {
     ],
   );
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!formRef.current) return;
-
-    const formData = new FormData(formRef.current);
+  const formAction = async (formData: FormData) => {
     const message = formData.get('message');
     if (!message || typeof message !== 'string') return;
     addOptimisticMessage(message);
-
-    await sendMessage(message);
     formRef.current?.reset();
+    await sendMessage(message);
   };
 
   return (
     <div>
-      <ul className="flex items-center">
+      <ul>
         {optimisticMessages.map((message) => (
-          <li key={message.key}>{`${message.text},`}</li>
+          <li key={message.key}>
+            {message.text} {message.sending && <span className="text-green-600">Sending...</span>}
+          </li>
         ))}
       </ul>
-      <form ref={formRef} onSubmit={handleSubmit} className="flex items-center gap-2">
+      <form ref={formRef} action={formAction} className="flex items-center gap-2">
         <input
           type="text"
           name="message"
