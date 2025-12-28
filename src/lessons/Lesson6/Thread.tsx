@@ -1,26 +1,44 @@
-import { useRef } from 'react';
+import { useOptimistic, useRef } from 'react';
 import type { Message } from './Lesson6';
 
 type Props = {
   messages: Message[];
-  sendMessage: (formData: FormData) => Promise<void>;
+  sendMessage: (message: string) => Promise<void>;
 };
 
 export default function Thread({ messages, sendMessage }: Props) {
   const formRef = useRef<HTMLFormElement>(null);
 
+  const [optimisticMessages, addOptimisticMessage] = useOptimistic(
+    messages,
+    (state: Message[], newMessageText: string) => [
+      ...state,
+      {
+        text: newMessageText,
+        sending: true,
+        key: state.length + 1,
+      },
+    ],
+  );
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (!formRef.current) return;
+
     const formData = new FormData(formRef.current);
-    await sendMessage(formData);
+    const message = formData.get('message');
+    if (!message || typeof message !== 'string') return;
+    addOptimisticMessage(message);
+
+    await sendMessage(message);
     formRef.current?.reset();
   };
 
   return (
     <div>
       <ul className="flex items-center">
-        {messages.map((message) => (
+        {optimisticMessages.map((message) => (
           <li key={message.key}>{`${message.text},`}</li>
         ))}
       </ul>

@@ -16,13 +16,8 @@ export default function Lesson6() {
   };
   const [messages, setMessages] = useState<Message[]>([initialMessage]);
 
-  const sendMessage = async (formData: FormData) => {
-    const messageEntry = formData.get('message');
-    if (!messageEntry || typeof messageEntry !== 'string') {
-      return;
-    }
-
-    const resultMessage = await deliverMessage(messageEntry);
+  const sendMessage = async (message: string) => {
+    const resultMessage = await deliverMessage(message);
     setMessages((prev) => [...prev, { text: resultMessage, sending: false, key: prev.length + 1 }]);
   };
 
