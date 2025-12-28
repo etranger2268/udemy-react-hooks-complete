@@ -1,8 +1,10 @@
+import { memo } from 'react';
+
 type Props = {
   count: number;
 };
 
-export default function Child({ count }: Props) {
+function Child({ count }: Props) {
   console.log('Child');
 
   // 重い処理
@@ -11,3 +13,5 @@ export default function Child({ count }: Props) {
 
   return <>Child: {count}</>;
 }
+
+export default memo(Child);
