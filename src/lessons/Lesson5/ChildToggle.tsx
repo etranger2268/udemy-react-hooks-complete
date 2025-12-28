@@ -1,13 +1,14 @@
-import { Fragment } from "react/jsx-runtime";
+import { memo } from 'react';
+import { Fragment } from 'react/jsx-runtime';
 
 type Props = {
   toggle: () => void;
   on: boolean;
 };
 
-export default function ChildToggle({ toggle, on }: Props) {
-  console.log('ChildToggle')
-  
+function ChildToggle({ toggle, on }: Props) {
+  console.log('ChildToggle');
+
   return (
     <Fragment>
       <p>Child: {on ? 'ON' : 'OFF'}</p>
@@ -21,3 +22,5 @@ export default function ChildToggle({ toggle, on }: Props) {
     </Fragment>
   );
 }
+
+export default memo(ChildToggle);
