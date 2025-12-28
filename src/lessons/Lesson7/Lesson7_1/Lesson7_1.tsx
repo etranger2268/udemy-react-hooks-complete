@@ -1,4 +1,4 @@
-import { type MouseEvent, useState } from 'react';
+import { type MouseEvent, useState, useTransition } from 'react';
 import AboutTab from './AboutTab';
 import ContactTab from './ContactTab';
 import PostsTab from './PostsTab';
@@ -10,6 +10,9 @@ const CONTACT = 'contact';
 
 export default function Lesson7_1() {
   const [tab, setTab] = useState('about');
+  const [isPending, startTransition] = useTransition();
+
+  const selectTab = (nextTab: string) => startTransition(() => setTab(nextTab));
 
   return (
     <div className="ml-8 text-lg">
@@ -17,21 +20,21 @@ export default function Lesson7_1() {
         <TabButton
           id={ABOUT}
           isActive={tab === ABOUT}
-          onClick={(e: MouseEvent<HTMLButtonElement>) => setTab(e.currentTarget.id)}
+          onClick={(e: MouseEvent<HTMLButtonElement>) => selectTab(e.currentTarget.id)}
         >
           {ABOUT}
         </TabButton>
         <TabButton
           id={POSTS}
           isActive={tab === POSTS}
-          onClick={(e: MouseEvent<HTMLButtonElement>) => setTab(e.currentTarget.id)}
+          onClick={(e: MouseEvent<HTMLButtonElement>) => selectTab(e.currentTarget.id)}
         >
           {POSTS}
         </TabButton>
         <TabButton
           id={CONTACT}
           isActive={tab === CONTACT}
-          onClick={(e: MouseEvent<HTMLButtonElement>) => setTab(e.currentTarget.id)}
+          onClick={(e: MouseEvent<HTMLButtonElement>) => selectTab(e.currentTarget.id)}
         >
           {CONTACT}
         </TabButton>

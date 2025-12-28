@@ -1,4 +1,5 @@
-import { Suspense, use } from 'react';
+// import { Suspense } from 'react';
+import { use } from 'react';
 import { Fragment } from 'react/jsx-runtime';
 
 const simulateDelay = async <T,>(data: T): Promise<T> => {
@@ -14,9 +15,9 @@ export default function PostsTab() {
     <div>
       <h1>Posts Page</h1>
       <ul className="list-disc ml-6">
-        <Suspense fallback={<p className="text-green-600">Loading...</p>}>
-          <PostsTabContent postsPromise={postsPromise} />
-        </Suspense>
+        {/* <Suspense fallback={<p className="text-green-600">Loading...</p>}> */}
+        <PostsTabContent postsPromise={postsPromise} />
+        {/* </Suspense> */}
       </ul>
     </div>
   );
