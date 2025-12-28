@@ -9,7 +9,8 @@
 // import Lesson3_4 from './lessons/Lesson3/Lesson3_4';
 // import AuthProvider from './lessons/Lesson4/context/Auth';
 // import Lesson4 from './lessons/Lesson4/Lesson4';
-import Lesson5_1 from './lessons/Lesson5/Lesson5_1';
+// import Lesson5_1 from './lessons/Lesson5/Lesson5_1';
+import Lesson5_2 from './lessons/Lesson5/Lesson5_2';
 
 export default function App() {
   return (
@@ -26,7 +27,8 @@ export default function App() {
       {/* <AuthProvider> */}
       {/* <Lesson4 /> */}
       {/* </AuthProvider> */}
-      <Lesson5_1 />
+      {/* <Lesson5_1 /> */}
+      <Lesson5_2 />
     </div>
   );
 }
