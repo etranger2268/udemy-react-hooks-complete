@@ -5,6 +5,9 @@ export default function Lesson8_2() {
   const [text, setText] = useState<string>('');
   const deferredText = useDeferredValue(text);
 
+  console.log(`text: ${text}`);
+  console.log(`deferredText: ${deferredText}`);
+
   return (
     <div className="text-lg">
       <label htmlFor="text" className="block font-medium">
