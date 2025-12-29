@@ -17,7 +17,8 @@
 // import Lesson7_2 from './lessons/Lesson7/Lesson7_2/Lesson7_2';
 // import Lesson7_3 from './lessons/Lesson7/Lesson7_3/Lesson7_3';
 // import Lesson8_1 from './lessons/Lesson8/Lesson8_1/Lesson8_1';
-import Lesson8_2 from './lessons/Lesson8/Lesson8_2/Lesson8_2';
+// import Lesson8_2 from './lessons/Lesson8/Lesson8_2/Lesson8_2';
+import Lesson9 from './lessons/Lesson9/Lesson9';
 
 export default function App() {
   return (
@@ -42,7 +43,8 @@ export default function App() {
       {/* <Lesson7_2 /> */}
       {/* <Lesson7_3 /> */}
       {/* <Lesson8_1 /> */}
-      <Lesson8_2 />
+      {/* <Lesson8_2 /> */}
+      <Lesson9 />
     </div>
   );
 }
