@@ -19,7 +19,7 @@ async function getData(url: string) {
 
 async function getBio() {
   await new Promise((resolve) => {
-    setTimeout(resolve, 500);
+    setTimeout(resolve, 2000);
   });
 
   return `The Beatles were an English rock band, 

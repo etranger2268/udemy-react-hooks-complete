@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import ArtistPage from './ArtistPage';
 import IndexPage from './IndexPage';
+import Layout from './Layout';
 
 export default function Router() {
   const [page, setPage] = useState('/');
+  const [isPending, startTransition] = useTransition();
 
-  const navigate = (url: string) => setPage(url);
+  const navigate = (url: string) => startTransition(() => setPage(url));
 
   const content =
     page === '/' ? (
@@ -14,5 +16,5 @@ export default function Router() {
       <ArtistPage artist={{ id: 'the-beatles', name: 'The Beatles' }} />
     ) : undefined;
 
-  return <main>{content}</main>;
+  return <Layout isPending={isPending}>{content}</Layout>;
 }
