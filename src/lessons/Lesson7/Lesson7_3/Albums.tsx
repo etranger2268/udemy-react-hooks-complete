@@ -1,10 +1,14 @@
 import { fetchData } from './data.js';
 
 export default function Albums({ artistId }: { artistId: string }) {
-  const albums = use(fetchData(`/${artistId}/albums`));
+  const albums = use(fetchData(`/${artistId}/albums`)) as {
+    id: number;
+    title: string;
+    year: number;
+  }[];
   return (
     <ul className="border-2 px-2 py-3 border-orange-300">
-      {albums.map((album: any) => (
+      {albums.map((album) => (
         <li key={album.id}>
           {album.title} ({album.year})
         </li>
